@@ -25,12 +25,20 @@ def solve_it(input_data):
     facilities = []
     for i in range(1, facility_count+1):
         parts = lines[i].split()
-        facilities.append(Facility(i-1, float(parts[0]), int(parts[1]), Point(float(parts[2]), float(parts[3])) ))
+
+        #funcao map 
+        p0, p1, p2, p3 = map(float, parts[0:4])
+        facilities.append(Facility(i-1, p0, p1, Point(p2, p3)))
+        #facilities.append(Facility(i-1, float(parts[0]), int(parts[1]), Point(float(parts[2]), float(parts[3])) ))
 
     customers = []
     for i in range(facility_count+1, facility_count+1+customer_count):
         parts = lines[i].split()
-        customers.append(Customer(i-1-facility_count, int(parts[0]), Point(float(parts[1]), float(parts[2]))))
+
+        #funcao map
+        p0, p1, p2 = map(float, parts[0:3])
+        customers.append(Customer(i-1-facility_count, p0, Point(p1, p2)))
+        #customers.append(Customer(i-1-facility_count, int(parts[0]), Point(float(parts[1]), float(parts[2]))))
 
     # build a trivial solution
     # pack the facilities one by one until all the customers are served
