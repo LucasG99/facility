@@ -3,6 +3,7 @@
 
 from collections import namedtuple
 import math
+from datetime import datetime
 
 Point = namedtuple("Point", ['x', 'y'])
 Facility = namedtuple("Facility", ['index', 'setup_cost', 'capacity', 'location'])
